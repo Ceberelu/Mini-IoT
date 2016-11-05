@@ -33,7 +33,10 @@ def index(name = None):
 
 @app.route('/b_on')
 def plug_b_on():
-	subprocess.call(cmd + plug_action('plug_b','on'))
+	try:
+		subprocess.check_call(cmd + plug_action('plug_b','on'))
+	except CalledProcessError:
+		return CalledProcessError
 	return render_template('index.html')
 
 @app.route('/b_off')

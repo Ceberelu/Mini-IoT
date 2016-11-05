@@ -13,6 +13,10 @@ Make sure you have set the FLASK_APP variable
 export FLASK_APP=YOUR_PATH/iotHub.py
 flask run --host=0.0.0.0
 
+To run at boot:
+  1. add flask_run.sh to /etc/init.d/
+  2. sudo update-rc.d flask_run.sh defaults
+
 # Limitations
   - There is no configuration file - 433 MHz codes and the path to 433MHz app is hardcoded
   - sudo priviledges required due to WiringPi implementation
